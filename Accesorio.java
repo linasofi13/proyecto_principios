@@ -84,8 +84,7 @@ public class Accesorio {
                     Accesorio.comprarAccesorioFondos(fondos, cuentas, accesoriosComprados); //check
                 }
                 else if(opcion3 == 2) { //regresa
-                    Accesorio.visualizarTienda();
-                    int opcion4 = scan.nextInt();
+                    Accesorio.personalizarPlanta(prendas, macetas, fondos, cuentas, accesoriosComprados);
 
                 }
             }else if(opcion2 == 4) {
@@ -151,6 +150,7 @@ public class Accesorio {
     public static void comprobarPagoPrendas(Accesorio[] prendas, ArrayList<Cuenta> cuentas, ArrayList<Accesorio> accesoriosComprados, int num) {
         Scanner scan = new Scanner(System.in);
         if(cuentas.get(0).getCantidadSoles() >= prendas[num].getPrecio()){
+            cuentas.get(0).setCantidadSoles(cuentas.get(0).getCantidadSoles() - prendas[num].getPrecio());
             System.out.println("¡Has comprado --> " + prendas[num].getNombreAccesorio());
             accesoriosComprados.add(prendas[num]);
             System.out.println("1 | COMPRAR OTRO ACCESORIO");
@@ -203,6 +203,7 @@ public class Accesorio {
     public static void comprobarPagoMacetas(Accesorio[] macetas, ArrayList<Cuenta> cuentas, ArrayList<Accesorio> accesoriosComprados, int num) {
         Scanner scan = new Scanner(System.in);
         if(cuentas.get(0).getCantidadSoles() >= macetas[num].getPrecio()){
+            cuentas.get(0).setCantidadSoles(cuentas.get(0).getCantidadSoles() - macetas[num].getPrecio());
             System.out.println("¡Has comprado --> " + macetas[num].getNombreAccesorio());
             accesoriosComprados.add(macetas[num]);
             System.out.println("1 | COMPRAR OTRO ACCESORIO");
@@ -252,6 +253,7 @@ public class Accesorio {
     public static void comprobarPagoFondos(Accesorio[] fondos, ArrayList<Cuenta> cuentas, ArrayList<Accesorio> accesoriosComprados, int num) {
         Scanner scan = new Scanner(System.in);
         if(cuentas.get(0).getCantidadSoles() >= fondos[num].getPrecio()){
+            cuentas.get(0).setCantidadSoles(cuentas.get(0).getCantidadSoles() - fondos[num].getPrecio());
             System.out.println("¡Has comprado --> " + fondos[num].getNombreAccesorio());
             accesoriosComprados.add(fondos[num]);
             System.out.println("1 | COMPRAR OTRO ACCESORIO");
