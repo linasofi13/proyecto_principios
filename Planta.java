@@ -97,4 +97,3 @@ public class Planta{
         System.out.println("° ~ Soles $50+ ~ °");
     }
 }
-
